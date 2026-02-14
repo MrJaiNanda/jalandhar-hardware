@@ -13,13 +13,17 @@ import Product from "./Components/Pages/Product.jsx";
 import Master from "./Components/Layout/Master.jsx";
 import Login from "./Components/Pages/Login.jsx";
 import Register from "./Components/Pages/Register.jsx";
+import AdminLayout from "./Components/Layout/AdminLayout.jsx";
+import ManageUser from "./Components/Admin/ManageUser.jsx";
+import AdminDashboard from "./Components/Admin/AdminDashboard.jsx";
+import AdminProduct from "./Components/Admin/AdminProduct.jsx";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Master />}>
+          {/* <Route path="/" element={<Master />}>
             <Route index element={<Home />}></Route>
             <Route path="about" element={<About />}></Route>
             <Route path="contact" element={<Contact />}></Route>
@@ -27,6 +31,13 @@ function App() {
             <Route path="/login" element={<Login />}></Route>
             <Route path="/register" element={<Register />}></Route>
 
+          </Route> */}
+          {/* because of no login page complete above user panal routing is commented 
+          if you want to access user panal just comment admin panal routing and uncomment above user panal routing */}
+          <Route path="/" element={<AdminLayout/>}>
+            <Route index element={<AdminDashboard/>}></Route>
+            <Route path="adminproduct" element={<AdminProduct/>}></Route>
+            <Route path="manageuser" element={<ManageUser/>}></Route>
           </Route>
         </Routes>
       </BrowserRouter>
