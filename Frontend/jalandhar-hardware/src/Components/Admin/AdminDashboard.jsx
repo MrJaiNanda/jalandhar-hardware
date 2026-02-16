@@ -4,7 +4,7 @@ export default function AdminDashboard() {
   return (
       <main className='font-Anton '>
 
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex h-screen bg-red-50">
  
       <div className="flex-1 flex flex-col">
        
