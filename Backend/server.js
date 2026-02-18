@@ -1,9 +1,12 @@
 const exp =  require('express');
 const app = exp();
 const cors = require('cors');
-const port = 3001;
+const port = process.env.PORT || 3001;
+const bodyParser = require('body-parser');
+const dotenv = require('dotenv');
 const connectDB = require('./db');
 const User = require('./schema');
+const bcrypt = require('bcrypt');
 
 app.use(exp.json());
 app.use(cors());
@@ -23,7 +26,7 @@ app.post("/register", async (req, res) => {
 });
 
 connectDB().then(() => {
-  app.listen("3001", () => {
-    console.log("Server started on port 3001");
+  app.listen(port, () => {
+    console.log(`Server started on port ${port}`);
   });
 });

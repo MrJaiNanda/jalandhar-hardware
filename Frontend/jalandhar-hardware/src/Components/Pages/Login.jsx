@@ -1,7 +1,13 @@
 import React from 'react'
+import { useState } from 'react';
 import { Link } from 'react-router-dom'
 
 const LoginPage = () => {
+  const [name , setName] = useState("");
+  const [email , setEmail] = useState("");
+  const [password , setPassword] = useState("");
+
+
   return (
     <>    
     <main className='h-screen relative bg-red-50'>

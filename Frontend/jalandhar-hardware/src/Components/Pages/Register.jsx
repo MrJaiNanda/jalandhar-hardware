@@ -1,9 +1,25 @@
 import React from 'react'
+import { useState } from 'react';
 import { Link } from 'react-router-dom'
 
 const RegisterPage = () => {
+  const [name , setName] = useState("");
+  const [email , setEmail] = useState("");
+  const [password , setPassword] = useState("");
+}
+
+  const handleRegister =() => {
+    // Handle registration logic here
+    fetch("http://localhost:3001/register"), {
+    method: "POST",
+    body: JSON.stringify({
+      name,
+      email,
+      password
+    })
+
+  }
   return (
-    <>
     <>    
     <main className='h-screen relative'>
       {/* Login and Register Toggle */}
@@ -14,9 +30,9 @@ const RegisterPage = () => {
         </div>
         {/* Register Form */}
           <div id='RegisterForm' className="h-30">
-            <input type="text" name="name" id="name" placeholder="UserName" className="w-full h-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" />
-          <input type="text" name="email" id="email" placeholder="Email Address" className="w-full h-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" />
-          <input type="password" name="password" id="password" placeholder="Password" className="w-full h-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" />
+            <input onChange={datachange} value={data?.name} type="text" name="name" id="name" placeholder="UserName" className="w-full h-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" />
+          <input onChange={datachange} value={data?.email} type="text" name="email" id="email" placeholder="Email Address" className="w-full h-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" />
+          <input onChange={datachange} value={data?.password} type="password" name="password" id="password" placeholder="Password" className="w-full h-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" />
         </div>
         {/* Register Button */}
         <div className='flex items-center justify-center relative'>
@@ -24,7 +40,6 @@ const RegisterPage = () => {
         </div>
     </div>
     </main>
-    </>
     </>
   )
 }
